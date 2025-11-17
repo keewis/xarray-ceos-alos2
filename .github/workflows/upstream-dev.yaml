@@ -92,7 +92,7 @@ jobs:
       - name: report failures
         if: |
           failure()
-          && steps.tests.outcome == 'failure'
+          && steps.status.outcome == 'failure'
           && github.event_name == 'schedule'
         uses: xarray-contrib/issue-from-pytest-log@v1
         with:
