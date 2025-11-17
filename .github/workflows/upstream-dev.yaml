@@ -53,6 +53,9 @@ jobs:
       matrix:
         python-version: ["3.12"]
 
+    permissions:
+      issues: write
+
     steps:
       - name: checkout the repository
         uses: actions/checkout@v5
@@ -94,6 +97,6 @@ jobs:
           failure()
           && steps.status.outcome == 'failure'
           && github.event_name == 'schedule'
-        uses: xarray-contrib/issue-from-pytest-log@v1
+        uses: scientific-python/issue-from-pytest-log-action@f94477e45ef40e4403d7585ba639a9a3bcc53d43 # v1.3.0
         with:
           log-path: pytest-log.jsonl
